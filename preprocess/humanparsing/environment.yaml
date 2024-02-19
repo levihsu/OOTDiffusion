@@ -1,0 +1,49 @@
+name: aigc-vton
+channels:
+  - pytorch
+  - defaults
+dependencies:
+  - _libgcc_mutex=0.1=main
+  - blas=1.0=mkl
+  - ca-certificates=2020.12.8=h06a4308_0
+  - certifi=2020.12.5=py38h06a4308_0
+  - cudatoolkit=10.1.243=h6bb024c_0
+  - freetype=2.10.4=h5ab3b9f_0
+  - intel-openmp=2020.2=254
+  - jpeg=9b=h024ee3a_2
+  - lcms2=2.11=h396b838_0
+  - ld_impl_linux-64=2.33.1=h53a641e_7
+  - libedit=3.1.20191231=h14c3975_1
+  - libffi=3.3=he6710b0_2
+  - libgcc-ng=9.1.0=hdf63c60_0
+  - libpng=1.6.37=hbc83047_0
+  - libstdcxx-ng=9.1.0=hdf63c60_0
+  - libtiff=4.1.0=h2733197_1
+  - lz4-c=1.9.2=heb0550a_3
+  - mkl=2020.2=256
+  - mkl-service=2.3.0=py38he904b0f_0
+  - mkl_fft=1.2.0=py38h23d657b_0
+  - mkl_random=1.1.1=py38h0573a6f_0
+  - ncurses=6.2=he6710b0_1
+  - ninja=1.10.2=py38hff7bd54_0
+  - numpy=1.19.2=py38h54aff64_0
+  - numpy-base=1.19.2=py38hfa32c7d_0
+  - olefile=0.46=py_0
+  - openssl=1.1.1i=h27cfd23_0
+  - pillow=8.0.1=py38he98fc37_0
+  - pip=20.3.3=py38h06a4308_0
+  - python=3.8.5=h7579374_1
+  - readline=8.0=h7b6447c_0
+  - setuptools=51.0.0=py38h06a4308_2
+  - six=1.15.0=py38h06a4308_0
+  - sqlite=3.33.0=h62c20be_0
+  - tk=8.6.10=hbc83047_0
+  - tqdm=4.55.0=pyhd3eb1b0_0
+  - wheel=0.36.2=pyhd3eb1b0_0
+  - xz=5.2.5=h7b6447c_0
+  - zlib=1.2.11=h7b6447c_3
+  - zstd=1.4.5=h9ceee32_0
+  - pytorch=1.5.1=py3.8_cuda10.1.243_cudnn7.6.3_0
+  - torchvision=0.6.1=py38_cu101
+prefix: /home/peike/opt/anaconda3/envs/schp
+

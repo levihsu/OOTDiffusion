@@ -1,0 +1,28 @@
+_BASE_: Base-PointRend-RCNN-FPN.yaml
+MODEL:
+  WEIGHTS: "./X-101-32x8d.pkl"
+  PIXEL_STD: [57.375, 57.120, 58.395]
+  MASK_ON: true
+  RESNETS:
+    STRIDE_IN_1X1: False  # this is a C2 model
+    NUM_GROUPS: 32
+    WIDTH_PER_GROUP: 8
+    DEPTH: 101
+  ROI_HEADS:
+    NUM_CLASSES: 1
+  POINT_HEAD:
+    NUM_CLASSES: 1
+SOLVER:
+  STEPS: (210000, 250000)
+  MAX_ITER: 270000
+  IMS_PER_BATCH: 1
+# To add COCO AP evaluation against the higher-quality LVIS annotations.
+# DATASETS:
+#   TEST: ("coco_2017_val", "lvis_v0.5_val_cocofied")
+INPUT:
+  MIN_SIZE_TRAIN: (640, 864)
+  MIN_SIZE_TRAIN_SAMPLING: "range"
+  MAX_SIZE_TRAIN: 1440
+DATASETS:
+  TRAIN: ("CIHP_train",)
+  TEST: ("CIHP_val",)
