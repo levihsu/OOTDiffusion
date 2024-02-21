@@ -1,7 +1,7 @@
 # OOTDiffusion
 This repository is the official implementation of OOTDiffusion
 
-[Try our OOTDiffusion](https://ootd.ibot.cn/)
+[Try our OOTDiffusion](https://ootd.ibot.cn)
 
 Please give me a star if you find it interesting!
 
@@ -9,6 +9,15 @@ Please give me a star if you find it interesting!
 > **OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on**<br>
 > [Yuhao Xu](https://scholar.google.com/citations?user=FF7JVLsAAAAJ&hl=zh-CN), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/chenshine1), Chengcai Chen<br>
 > Xiao-i Research
+
+Our paper will be released soon!
+
+🔥🔥 Our model checkpoints trained on VITON-HD (768 * 1024) has been released!
+
+[🤗 Hugging Face Link](https://huggingface.co/levihsu/OOTDiffusion)
+
+> We use checkpoints of [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) and [openpose](https://huggingface.co/lllyasviel/ControlNet/tree/main/annotator/ckpts) in preprocess<br>
+> Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into *checkpoints* folder
 
 ![demo](images/demo.png)&nbsp;
 ![workflow](images/workflow.png)&nbsp;
