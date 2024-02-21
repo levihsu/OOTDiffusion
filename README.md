@@ -14,10 +14,9 @@ Our paper will be released soon!
 
 🔥🔥 Our model checkpoints trained on VITON-HD (768 * 1024) has been released!
 
-[🤗 Hugging Face Link](https://huggingface.co/levihsu/OOTDiffusion)
-
+> 🤗 [Hugging Face Link](https://huggingface.co/levihsu/OOTDiffusion)<br>
 > We use checkpoints of [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) and [openpose](https://huggingface.co/lllyasviel/ControlNet/tree/main/annotator/ckpts) in preprocess<br>
-> Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into *checkpoints* folder
+> Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into ***checkpoints*** folder
 
 ![demo](images/demo.png)&nbsp;
 ![workflow](images/workflow.png)&nbsp;
