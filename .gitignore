@@ -3,4 +3,3 @@ __pycache__/
 .vscode/
 *.pyc
 checkpoints/
-.ipynb_checkpoints
