@@ -461,7 +461,7 @@ class OotdPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMix
 
                 init_latents_proper = image_ori_latents * self.vae.config.scaling_factor
 
-                # fuck xiaoi
+                # repainting
                 if i < len(timesteps) - 1:
                     noise_timestep = timesteps[i + 1]
                     init_latents_proper = self.scheduler.add_noise(
