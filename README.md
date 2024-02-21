@@ -10,7 +10,7 @@ Please give me a star if you find it interesting!
 > [Yuhao Xu](https://scholar.google.com/citations?user=FF7JVLsAAAAJ&hl=zh-CN), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/chenshine1), Chengcai Chen<br>
 > Xiao-i Research
 
-Our paper will be released soon!
+Our paper is coming soon!
 
 🔥🔥 Our model checkpoints trained on VITON-HD (768 * 1024) has been released!
 
