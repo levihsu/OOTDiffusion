@@ -3,7 +3,7 @@ This repository is the official implementation of OOTDiffusion
 
 [Try our OOTDiffusion](https://ootd.ibot.cn)
 
-Please give me a star if you find it interesting!
+🤩 Please give me a star if you find it interesting!
 
 
 > **OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on**<br>
@@ -12,7 +12,9 @@ Please give me a star if you find it interesting!
 
 Our paper is coming soon!
 
-🔥🔥 Our model checkpoints trained on VITON-HD (768 * 1024) have been released!
+🔥🔥 Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (768 * 1024) have been released!
+
+Checkpoints trained on [Dress Code](https://github.com/aimagelab/dress-code) (768 * 1024) will be released soon. Thanks for your patience ❤
 
 > 🤗 [Hugging Face Link](https://huggingface.co/levihsu/OOTDiffusion)<br>
 > We use checkpoints of [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) and [openpose](https://huggingface.co/lllyasviel/ControlNet/tree/main/annotator/ckpts) in preprocess. Please refer to their guidance if you encounter relevant environmental issues<br>
