@@ -263,4 +263,4 @@ with block:
     run_button_dc.click(fn=process_dc, inputs=ips_dc, outputs=[result_gallery_dc])
 
 
-block.launch(server_name='0.0.0.0', server_port=7865)
+block.launch(server_name='0.0.0.0', server_port=7865, inbrowser=True)
