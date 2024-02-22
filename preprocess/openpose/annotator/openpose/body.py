@@ -15,8 +15,6 @@ from torchvision import transforms
 
 from . import util
 from .model import bodypose_model
-import onnxruntime as ort
-
 
 
 class Body(object):
