@@ -230,7 +230,6 @@ class BasicTransformerBlock(nn.Module):
         # 0. Self-Attention
         batch_size = hidden_states.shape[0]
 
-        # print(hidden_states.size())
         spatial_attn_input = hidden_states
         spatial_attn_inputs.append(spatial_attn_input)
 
