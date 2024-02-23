@@ -10,11 +10,6 @@ from utils_ootd import get_mask_location
 PROJECT_ROOT = Path(__file__).absolute().parents[1].absolute()
 sys.path.insert(0, str(PROJECT_ROOT))
 
-# import argparse
-# parser = argparse.ArgumentParser(description='ootd')
-# parser.add_argument('--gpuid', '-g', type=int, default=0, required=False)
-# args = parser.parse_args()
-
 import time
 from preprocess.openpose.run_openpose import OpenPose
 from preprocess.humanparsing.aigc_run_parsing import Parsing
