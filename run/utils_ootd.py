@@ -74,8 +74,6 @@ def get_mask_location(model_type, category, model_parse: Image.Image, keypoint: 
                         (parse_array == label_map["sunglasses"]).astype(np.float32) + \
                         (parse_array == label_map["bag"]).astype(np.float32)
 
-    # (parse_array == label_map["scarf"]).astype(np.float32) + \
-
     parser_mask_changeable = (parse_array == label_map["background"]).astype(np.float32)
 
     arms_left = (parse_array == 14).astype(np.float32)
@@ -87,8 +85,6 @@ def get_mask_location(model_type, category, model_parse: Image.Image, keypoint: 
                      (parse_array == 4).astype(np.float32) + \
                      (parse_array == 5).astype(np.float32) + \
                      (parse_array == 6).astype(np.float32)
-                     # (parse_array == 12).astype(np.float32) + \
-                     # (parse_array == 13).astype(np.float32) + \
 
         parser_mask_changeable += np.logical_and(parse_array, np.logical_not(parser_mask_fixed))
 
