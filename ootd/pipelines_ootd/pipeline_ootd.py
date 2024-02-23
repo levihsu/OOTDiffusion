@@ -235,35 +235,6 @@ class OotdPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMix
                 will be passed as `callback_kwargs` argument. You will only be able to include variables listed in the
                 `._callback_tensor_inputs` attribute of your pipeline class.
 
-        Examples:
-
-        ```py
-        >>> import PIL
-        >>> import requests
-        >>> import torch
-        >>> from io import BytesIO
-
-        >>> from diffusers import StableDiffusionInstructPix2PixPipeline
-
-
-        >>> def download_image(url):
-        ...     response = requests.get(url)
-        ...     return PIL.Image.open(BytesIO(response.content)).convert("RGB")
-
-
-        >>> img_url = "https://huggingface.co/datasets/diffusers/diffusers-images-docs/resolve/main/mountain.png"
-
-        >>> image = download_image(img_url).resize((512, 512))
-
-        >>> pipe = StableDiffusionInstructPix2PixPipeline.from_pretrained(
-        ...     "timbrooks/instruct-pix2pix", torch_dtype=torch.float16
-        ... )
-        >>> pipe = pipe.to("cuda")
-
-        >>> prompt = "make the mountains snowy"
-        >>> image = pipe(prompt=prompt, image=image).images[0]
-        ```
-
         Returns:
             [`~pipelines.stable_diffusion.StableDiffusionPipelineOutput`] or `tuple`:
                 If `return_dict` is `True`, [`~pipelines.stable_diffusion.StableDiffusionPipelineOutput`] is returned,
@@ -410,9 +381,6 @@ class OotdPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMix
 
         with self.progress_bar(total=num_inference_steps) as progress_bar:
             for i, t in enumerate(timesteps):
-                # Expand the latents if we are doing classifier free guidance.
-                # The latents are expanded 3 times because for pix2pix the guidance\
-                # is applied for both the text and the input image.
                 latent_model_input = torch.cat([latents] * 2) if self.do_classifier_free_guidance else latents
 
                 # concat latents, image_latents in the channel dimension
@@ -635,25 +603,7 @@ class OotdPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMix
             else:
                 attention_mask = None
 
-            # negative_prompt_embeds = self.text_encoder(
-            #     uncond_input.input_ids.to(device),
-            #     attention_mask=attention_mask,
-            # )
-            # negative_prompt_embeds = negative_prompt_embeds[0]
-
         if do_classifier_free_guidance:
-            # duplicate unconditional embeddings for each generation per prompt, using mps friendly method
-            # seq_len = negative_prompt_embeds.shape[1]
-
-            # negative_prompt_embeds = negative_prompt_embeds.to(dtype=self.text_encoder.dtype, device=device)
-
-            # negative_prompt_embeds = negative_prompt_embeds.repeat(1, num_images_per_prompt, 1)
-            # negative_prompt_embeds = negative_prompt_embeds.view(batch_size * num_images_per_prompt, seq_len, -1)
-
-            # For classifier free guidance, we need to do two forward passes.
-            # Here we concatenate the unconditional and text embeddings into a single batch
-            # to avoid doing two forward passes
-            # pix2pix has two  negative embeddings, and unlike in other pipelines latents are ordered [prompt_embeds, negative_prompt_embeds, negative_prompt_embeds]
             prompt_embeds = torch.cat([prompt_embeds, prompt_embeds])
 
         return prompt_embeds
