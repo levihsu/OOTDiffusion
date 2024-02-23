@@ -54,9 +54,6 @@ class Body(object):
             with torch.no_grad():
                 Mconv7_stage6_L1, Mconv7_stage6_L2 = self.model(data)
 
-                # 测试onnx
-                # Mconv7_stage6_L1, Mconv7_stage6_L2 = self.session.run(None, {"input.1": data.cpu().numpy()})
-                # print("onnx推理body!")
             Mconv7_stage6_L1 = Mconv7_stage6_L1.cpu().numpy()
             Mconv7_stage6_L2 = Mconv7_stage6_L2.cpu().numpy()
 
