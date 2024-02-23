@@ -3,14 +3,7 @@ from pathlib import Path
 import sys
 PROJECT_ROOT = Path(__file__).absolute().parents[0].absolute()
 sys.path.insert(0, str(PROJECT_ROOT))
-
-# import argparse
-# parser = argparse.ArgumentParser(description='ootd')
-# parser.add_argument('--gpuid', '-g', type=str, default='0', required=False)
-# args = parser.parse_args()
-
 import os
-# os.environ["CUDA_VISIBLE_DEVICES"] = args.gpuid
 
 import torch
 import numpy as np

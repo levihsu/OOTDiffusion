@@ -233,10 +233,7 @@ class BasicTransformerBlock(nn.Module):
 
         spatial_attn_input = spatial_attn_inputs[spatial_attn_idx]
         spatial_attn_idx += 1
-        # print(spatial_attn_input.size())
-        # print(hidden_states.size())
         hidden_states = torch.cat((hidden_states, spatial_attn_input), dim=1)
-        # print(hidden_states.size())
 
         if self.use_ada_layer_norm:
             norm_hidden_states = self.norm1(hidden_states, timestep)
@@ -279,9 +276,7 @@ class BasicTransformerBlock(nn.Module):
 
         
         hidden_states = attn_output + hidden_states
-        # print(hidden_states.size())
         hidden_states, _ = hidden_states.chunk(2, dim=1)
-        # print(hidden_states.size())
 
         if hidden_states.ndim == 4:
             hidden_states = hidden_states.squeeze(1)
