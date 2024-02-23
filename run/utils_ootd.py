@@ -83,7 +83,6 @@ def get_mask_location(model_type, category, model_parse: Image.Image, keypoint: 
     arms = arms_left + arms_right
 
     if category == 'dresses':
-        # 裙子加腿 mask
         parse_mask = (parse_array == 7).astype(np.float32) + \
                      (parse_array == 4).astype(np.float32) + \
                      (parse_array == 5).astype(np.float32) + \
@@ -91,30 +90,22 @@ def get_mask_location(model_type, category, model_parse: Image.Image, keypoint: 
                      # (parse_array == 12).astype(np.float32) + \
                      # (parse_array == 13).astype(np.float32) + \
 
-        # 除fixed的区域，都是parser_mask_changeable
         parser_mask_changeable += np.logical_and(parse_array, np.logical_not(parser_mask_fixed))
 
     elif category == 'upper_body':
-        # 上衣mask
         parse_mask = (parse_array == 4).astype(np.float32) + (parse_array == 7).astype(np.float32)
-        # 下半身衣物fixed
         parser_mask_fixed_lower_cloth = (parse_array == label_map["skirt"]).astype(np.float32) + \
                                         (parse_array == label_map["pants"]).astype(np.float32)
-        # parser_mask_fixed_lower_cloth = cv2.erode(parser_mask_fixed_lower_cloth, np.ones((5, 5), np.uint16))
         parser_mask_fixed += parser_mask_fixed_lower_cloth
-        # 除fixed的区域，都是parser_mask_changeable
         parser_mask_changeable += np.logical_and(parse_array, np.logical_not(parser_mask_fixed))
     elif category == 'lower_body':
-        # 裤子加腿 mask
         parse_mask = (parse_array == 6).astype(np.float32) + \
                      (parse_array == 12).astype(np.float32) + \
                      (parse_array == 13).astype(np.float32) + \
                      (parse_array == 5).astype(np.float32)
-        # 手臂fixed
         parser_mask_fixed += (parse_array == label_map["upper_clothes"]).astype(np.float32) + \
                              (parse_array == 14).astype(np.float32) + \
                              (parse_array == 15).astype(np.float32)
-        # 除fixed的区域，都是parser_mask_changeable
         parser_mask_changeable += np.logical_and(parse_array, np.logical_not(parser_mask_fixed))
     else:
         raise NotImplementedError
@@ -142,83 +133,35 @@ def get_mask_location(model_type, category, model_parse: Image.Image, keypoint: 
         
 
         if wrist_right[0] <= 1. and wrist_right[1] <= 1.:
-            if elbow_right[0] <= 1. and elbow_right[1] <= 1.:
-                # arms_draw_left.line(
-                #     np.concatenate((wrist_left, elbow_left, shoulder_left)).astype(np.uint16).tolist(), 'white',
-                #     60, 'curve')
-                # arms_draw_left.arc(size_left, 0, 360, 'white', 30)
-                im_arms_right = arms_right
-            else:
-                # arms_draw_left.line(
-                #     np.concatenate((wrist_left, elbow_left, shoulder_left)).astype(np.uint16).tolist(), 'white',
-                #     60, 'curve')
-                # arms_draw_left.arc(size_left, 0, 360, 'white', 30)
-                im_arms_right = arms_right
-                # arms_draw_right.line(np.concatenate((shoulder_right, elbow_right)).astype(np.uint16).tolist(), 'white', ARM_LINE_WIDTH, 'curve')
-                # arms_draw_right.arc(size_right, 0, 360, 'white', ARM_LINE_WIDTH//2)
+            im_arms_right = arms_right
         else:
             wrist_right = extend_arm_mask(wrist_right, elbow_right, 1.2)
             arms_draw_right.line(np.concatenate((shoulder_right, elbow_right, wrist_right)).astype(np.uint16).tolist(), 'white', ARM_LINE_WIDTH, 'curve')
             arms_draw_right.arc(size_right, 0, 360, 'white', ARM_LINE_WIDTH // 2)
 
         if wrist_left[0] <= 1. and wrist_left[1] <= 1.:
-            if elbow_left[0] <= 1. and elbow_left[1] <= 1.:
-                # arms_draw_right.line(
-                #     np.concatenate((shoulder_right, elbow_right, wrist_right)).astype(np.uint16).tolist(),
-                #     'white', 60, 'curve')
-                # arms_draw_right.arc(size_right, 0, 360, 'white', 30)
-                im_arms_left = arms_left
-            else:
-                # arms_draw_left.line(np.concatenate((elbow_left, shoulder_left)).astype(np.uint16).tolist(), 'white', ARM_LINE_WIDTH, 'curve')
-                im_arms_left = arms_left
-                # arms_draw_left.arc(size_left, 0, 360, 'white', ARM_LINE_WIDTH//2)
-
-                # arms_draw_right.line(
-                #     np.concatenate((shoulder_right, elbow_right, wrist_right)).astype(np.uint16).tolist(),
-                #     'white', 60, 'curve')
-                # arms_draw_right.arc(size_right, 0, 360, 'white', 30)
+            im_arms_left = arms_left
         else:
-            # extend arm scale 1.2
             wrist_left = extend_arm_mask(wrist_left, elbow_left, 1.2)
             arms_draw_left.line(np.concatenate((wrist_left, elbow_left, shoulder_left)).astype(np.uint16).tolist(), 'white', ARM_LINE_WIDTH, 'curve')
             arms_draw_left.arc(size_left, 0, 360, 'white', ARM_LINE_WIDTH // 2)
 
-        # im_arms_left.save("leftarm.jpg")
-        # im_arms_right.save("rightarm.jpg")
         hands_left = np.logical_and(np.logical_not(im_arms_left), arms_left)
-        # hands_left_refine = refine_mask(hands_left)
-        # im_arms_left += np.logical_and(np.logical_not(hands_left_refine), hands_left)
-        # Image.fromarray(((hands_left > 0) * 127.5 + 127.5).astype(np.uint8)).save("hands_left.jpg")
         hands_right = np.logical_and(np.logical_not(im_arms_right), arms_right)
-        # hands_right_refine = refine_mask(hands_right)
-        # im_arms_right += np.logical_and(np.logical_not(hands_right_refine), hands_right)
-        # Image.fromarray(((hands_right > 0) * 127.5 + 127.5).astype(np.uint8)).save("hands_right.jpg")
-        # Image.fromarray(((parser_mask_fixed > 0) * 127.5 + 127.5).astype(np.uint8)).save("fixed_before.jpg")
         parser_mask_fixed += hands_left + hands_right
-        # Image.fromarray(((parser_mask_fixed > 0) * 127.5 + 127.5).astype(np.uint8)).save("fixed_after.jpg")
 
-    # parser_mask_fixed 加入脸部和双肩以上脖子
     parser_mask_fixed = np.logical_or(parser_mask_fixed, parse_head)
     parse_mask = cv2.dilate(parse_mask, np.ones((5, 5), np.uint16), iterations=5)
     if category == 'dresses' or category == 'upper_body':
         neck_mask = (parse_array == 18).astype(np.float32)
-        # Image.fromarray(((parse_mask > 0) * 127.5 + 127.5).astype(np.uint8)).save("mask_before.jpg")
         neck_mask = cv2.dilate(neck_mask, np.ones((5, 5), np.uint16), iterations=1)
         neck_mask = np.logical_and(neck_mask, np.logical_not(parse_head))
         parse_mask = np.logical_or(parse_mask, neck_mask)
-        # Image.fromarray(((parse_mask > 0) * 127.5 + 127.5).astype(np.uint8)).save("mask_after.jpg")
-        # 单独控制手臂部分大小
         arm_mask = cv2.dilate(np.logical_or(im_arms_left, im_arms_right).astype('float32'), np.ones((5, 5), np.uint16), iterations=4)
-        # Image.fromarray(((arm_mask > 0) * 127.5 + 127.5).astype(np.uint8)).save("arm_mask.jpg")
         parse_mask += np.logical_or(parse_mask, arm_mask)
 
-    # pdb.set_trace()
-    # 除了fix（hands排除）就是changeable，not parse_mask 除了要mask的 其余置1（除了fixed区域与mask区域，其余都为1）
-    # Image.fromarray(((parse_mask > 0) * 127.5 + 127.5).astype(np.uint8)).save("mask_addarm.jpg")
     parse_mask = np.logical_and(parser_mask_changeable, np.logical_not(parse_mask))
 
-    # parser_mask_fixed + parse_mask 结合，把fixed加入，只剩要mask区域（若有侵蚀到fixed的操作也会被fixed重新取回）
-    # Image.fromarray(((parser_mask_fixed > 0).cpu().numpy() * 127.5 + 127.5).astype(np.uint8)).save("mask_fixed.jpg")
     parse_mask_total = np.logical_or(parse_mask, parser_mask_fixed)
     inpaint_mask = 1 - parse_mask_total
     img = np.where(inpaint_mask, 255, 0)
