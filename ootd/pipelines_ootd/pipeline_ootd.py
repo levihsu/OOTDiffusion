@@ -354,17 +354,6 @@ class OotdPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMix
 
         noise = latents.clone()
 
-        # 7. Check that shapes of latents and image match the UNet channels
-        # num_channels_image = vton_latents.shape[1]
-        # if num_channels_latents + num_channels_image != self.unet_vton.config.in_channels:
-        #     raise ValueError(
-        #         f"Incorrect configuration settings! The config of `pipeline.unet`: {self.unet_vton.config} expects"
-        #         f" {self.unet_vton.config.in_channels} but received `num_channels_latents`: {num_channels_latents} +"
-        #         f" `num_channels_image`: {num_channels_image} "
-        #         f" = {num_channels_latents+num_channels_image}. Please verify the config of"
-        #         " `pipeline.unet` or your `image` input."
-        #     )
-
         # 8. Prepare extra step kwargs. TODO: Logic should ideally just be moved out of the pipeline
         extra_step_kwargs = self.prepare_extra_step_kwargs(generator, eta)
 
@@ -747,14 +736,6 @@ class OotdPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMix
                 image_latents = self.vae.encode(image).latent_dist.mode()
 
         if batch_size > image_latents.shape[0] and batch_size % image_latents.shape[0] == 0:
-            # expand image_latents for batch_size
-            # deprecation_message = (
-            #     f"You have passed {batch_size} text prompts (`prompt`), but only {image_latents.shape[0]} initial"
-            #     " images (`image`). Initial images are now duplicating to match the number of text prompts. Note"
-            #     " that this behavior is deprecated and will be removed in a version 1.0.0. Please make sure to update"
-            #     " your script to pass as many initial images as text prompts to suppress this warning."
-            # )
-            # deprecate("len(prompt) != len(image)", "1.0.0", deprecation_message, standard_warn=False)
             additional_image_per_prompt = batch_size // image_latents.shape[0]
             image_latents = torch.cat([image_latents] * additional_image_per_prompt, dim=0)
         elif batch_size > image_latents.shape[0] and batch_size % image_latents.shape[0] != 0:
@@ -808,14 +789,6 @@ class OotdPipeline(DiffusionPipeline, TextualInversionLoaderMixin, LoraLoaderMix
         mask = mask.to(device=device, dtype=dtype)
 
         if batch_size > image_latents.shape[0] and batch_size % image_latents.shape[0] == 0:
-            # expand image_latents for batch_size
-            # deprecation_message = (
-            #     f"You have passed {batch_size} text prompts (`prompt`), but only {image_latents.shape[0]} initial"
-            #     " images (`image`). Initial images are now duplicating to match the number of text prompts. Note"
-            #     " that this behavior is deprecated and will be removed in a version 1.0.0. Please make sure to update"
-            #     " your script to pass as many initial images as text prompts to suppress this warning."
-            # )
-            # deprecate("len(prompt) != len(image)", "1.0.0", deprecation_message, standard_warn=False)
             additional_image_per_prompt = batch_size // image_latents.shape[0]
             image_latents = torch.cat([image_latents] * additional_image_per_prompt, dim=0)
             mask = torch.cat([mask] * additional_image_per_prompt, dim=0)
