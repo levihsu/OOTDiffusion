@@ -1,30 +1,27 @@
 # OOTDiffusion
 This repository is the official implementation of OOTDiffusion
 
-[Try our OOTDiffusion](https://ootd.ibot.cn)
+[Try our OOTDiffusion](https://ootd.ibot.cn/)
 
 🤩 Please give me a star if you find it interesting!
 
-
 > **OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on**<br>
-> [Yuhao Xu](https://scholar.google.com/citations?user=FF7JVLsAAAAJ&hl=zh-CN), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/ShineChen1024), Chengcai Chen<br>
+> [Yuhao Xu](https://scholar.google.com/citations?user=FF7JVLsAAAAJ&hl=zh-CN), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/ShineChen1024), and [Chengcai Chen](https://www.researchgate.net/profile/Chengcai-Chen)<br>
 > Xiao-i Research
 
 Our paper is coming soon!
 
-🔥🔥 Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (768 * 1024) have been released!
+🥳🥳 Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released!
 
-Checkpoints trained on [Dress Code](https://github.com/aimagelab/dress-code) (768 * 1024) will be released soon. Thanks for your patience ❤
-
-> 🤗 [Hugging Face Link](https://huggingface.co/levihsu/OOTDiffusion)<br>
-> We use checkpoints of [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) and [openpose](https://huggingface.co/lllyasviel/ControlNet/tree/main/annotator/ckpts) in preprocess. Please refer to their guidance if you encounter relevant environmental issues<br>
-> Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into ***checkpoints*** folder
+* 🤗 [Hugging Face Link](https://huggingface.co/levihsu/OOTDiffusion)
+* We use checkpoints of [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) and [openpose](https://huggingface.co/lllyasviel/ControlNet/tree/main/annotator/ckpts) in preprocess. Please refer to their guidance if you encounter relevant environmental issues
+* Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into ***checkpoints*** folder
+* We've only tested our code and models on Linux (Ubuntu 22.04)
 
 ![demo](images/demo.png)&nbsp;
 ![workflow](images/workflow.png)&nbsp;
 
 ## Installation
-
 1. Clone the repository
 
 ```sh
@@ -40,7 +37,6 @@ pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 numpy==1.24.4 sci
 ```
 
 ## Inference
-
 1. Half-body model
 
 ```sh
@@ -57,9 +53,14 @@ cd OOTDiffusion/run
 python run_ootd.py --model_path <model-image-path> --cloth_path <cloth-image-path> --model_type dc --category 2 --scale 2.0 --sample 4
 ```
 
+## Citation
+```
+
+```
+
 ## TODO List
 - [ ] Paper
 - [x] Gradio demo
 - [x] Inference code
-- [ ] Model weights
+- [x] Model weights
 - [ ] Training code
