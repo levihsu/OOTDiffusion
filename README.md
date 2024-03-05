@@ -9,7 +9,7 @@ This repository is the official implementation of OOTDiffusion
 > [Yuhao Xu](https://scholar.google.com/citations?user=FF7JVLsAAAAJ&hl=zh-CN), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/ShineChen1024), and [Chengcai Chen](https://www.researchgate.net/profile/Chengcai-Chen)<br>
 > Xiao-i Research
 
-An early version of our paper is available now! [arXiv](https://arxiv.org/abs/2403.01779)
+An early version of our paper is available now! [[arXiv](https://arxiv.org/abs/2403.01779)]
 
 🥳🥳 Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released!
 
