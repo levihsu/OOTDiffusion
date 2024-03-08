@@ -3,7 +3,7 @@ This repository is the official implementation of OOTDiffusion
 
 [Try out OOTDiffusion](https://ootd.ibot.cn/)
 
-🤗 [Hugging Face demo](https://huggingface.co/spaces/levihsu/OOTDiffusion) Many thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs!
+🤗 [Hugging Face demo](https://huggingface.co/spaces/levihsu/OOTDiffusion) (Many thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs)
 
 🤩 Please give me a star if you find it interesting!
 
@@ -12,7 +12,7 @@ This repository is the official implementation of OOTDiffusion
 > Xiao-i Research
 
 
-Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released!
+Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released
 
 * 🤗 [Hugging Face link](https://huggingface.co/levihsu/OOTDiffusion)
 * 📢📢 We support ONNX for [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) now. Most environmental issues should have been addressed : )
