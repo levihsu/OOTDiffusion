@@ -7,7 +7,7 @@ PROJECT_ROOT = Path(__file__).absolute().parents[1].absolute()
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from preprocess.openpose.run_openpose import OpenPose
-from preprocess.humanparsing.aigc_run_parsing import Parsing
+from preprocess.humanparsing.run_parsing import Parsing
 from ootd.inference_ootd_hd import OOTDiffusionHD
 from ootd.inference_ootd_dc import OOTDiffusionDC
 
