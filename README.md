@@ -3,6 +3,8 @@ This repository is the official implementation of OOTDiffusion
 
 [Try out OOTDiffusion](https://ootd.ibot.cn/)
 
+🤗 [Hugging Face demo](https://huggingface.co/spaces/levihsu/OOTDiffusion) Many thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs!
+
 🤩 Please give me a star if you find it interesting!
 
 > **OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on** [[arXiv paper](https://arxiv.org/abs/2403.01779)]<br>
@@ -10,10 +12,10 @@ This repository is the official implementation of OOTDiffusion
 > Xiao-i Research
 
 
-Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released
+Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released!
 
 * 🤗 [Hugging Face link](https://huggingface.co/levihsu/OOTDiffusion)
-* 📢📢 We support ONNX for [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) now. Most environmental issues should have been solved : )
+* 📢📢 We support ONNX for [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) now. Most environmental issues should have been addressed : )
 * Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into ***checkpoints*** folder
 * We've only tested our code and models on Linux (Ubuntu 22.04)
 
