@@ -10,10 +10,10 @@ This repository is the official implementation of OOTDiffusion
 > Xiao-i Research
 
 
-🥳🥳 Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released!
+Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released
 
 * 🤗 [Hugging Face link](https://huggingface.co/levihsu/OOTDiffusion)
-* We use checkpoints of [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) and [openpose](https://huggingface.co/lllyasviel/ControlNet/tree/main/annotator/ckpts) in preprocess. Please refer to their guidance if you encounter relevant environmental issues
+* 📢 We support ONNX for [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) now
 * Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into ***checkpoints*** folder
 * We've only tested our code and models on Linux (Ubuntu 22.04)
 
@@ -32,7 +32,8 @@ git clone https://github.com/levihsu/OOTDiffusion
 ```sh
 conda create -n ootd python==3.10
 conda activate ootd
-pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 numpy==1.24.4 scipy==1.10.1 scikit-image==0.21.0 opencv-python==4.7.0.72 pillow==9.4.0 diffusers==0.24.0 transformers==4.36.2 accelerate==0.26.1 matplotlib==3.7.4 tqdm==4.64.1 gradio==4.16.0 config==0.5.1 einops==0.7.0 ninja==1.10.2
+pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
+pip install -r requirements.txt
 ```
 
 ## Inference
