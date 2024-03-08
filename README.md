@@ -1,19 +1,19 @@
 # OOTDiffusion
 This repository is the official implementation of OOTDiffusion
 
-[Try our OOTDiffusion](https://ootd.ibot.cn/)
+[Try out OOTDiffusion](https://ootd.ibot.cn/)
 
 🤩 Please give me a star if you find it interesting!
 
 > **OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on**<br>
-> [Yuhao Xu](https://scholar.google.com/citations?user=FF7JVLsAAAAJ&hl=zh-CN), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/ShineChen1024), and [Chengcai Chen](https://www.researchgate.net/profile/Chengcai-Chen)<br>
+> [Yuhao Xu](http://levihsu.github.io/), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/ShineChen1024), [Chengcai Chen](https://www.researchgate.net/profile/Chengcai-Chen)<br>
 > Xiao-i Research
 
-An early version of our paper is available now! [[arXiv](https://arxiv.org/abs/2403.01779)]
+[[arXiv paper](https://arxiv.org/abs/2403.01779)]
 
 🥳🥳 Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-HD) (half-body) and [Dress Code](https://github.com/aimagelab/dress-code) (full-body) have been released!
 
-* 🤗 [Hugging Face Link](https://huggingface.co/levihsu/OOTDiffusion)
+* 🤗 [Hugging Face link](https://huggingface.co/levihsu/OOTDiffusion)
 * We use checkpoints of [humanparsing](https://github.com/GoGoDuck912/Self-Correction-Human-Parsing) and [openpose](https://huggingface.co/lllyasviel/ControlNet/tree/main/annotator/ckpts) in preprocess. Please refer to their guidance if you encounter relevant environmental issues
 * Please download [clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14) into ***checkpoints*** folder
 * We've only tested our code and models on Linux (Ubuntu 22.04)
