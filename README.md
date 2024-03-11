@@ -1,9 +1,7 @@
 # OOTDiffusion
 This repository is the official implementation of OOTDiffusion
 
-[Try out OOTDiffusion](https://ootd.ibot.cn/)
-
-🤗 [Hugging Face demo](https://huggingface.co/spaces/levihsu/OOTDiffusion) (Many thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs)
+🤗 [Try out OOTDiffusion](https://huggingface.co/spaces/levihsu/OOTDiffusion) (Many thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs)
 
 🤩 Please give me a star if you find it interesting!
 
@@ -57,13 +55,11 @@ python run_ootd.py --model_path <model-image-path> --cloth_path <cloth-image-pat
 
 ## Citation
 ```
-@misc{xu2024ootdiffusion,
-      title={OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on}, 
-      author={Yuhao Xu and Tao Gu and Weifeng Chen and Chengcai Chen},
-      year={2024},
-      eprint={2403.01779},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@article{xu2024ootdiffusion,
+  title={OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on},
+  author={Xu, Yuhao and Gu, Tao and Chen, Weifeng and Chen, Chengcai},
+  journal={arXiv preprint arXiv:2403.01779},
+  year={2024}
 }
 ```
 
