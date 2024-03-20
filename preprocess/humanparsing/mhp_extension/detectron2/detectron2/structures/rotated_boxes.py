@@ -210,7 +210,7 @@ class RotatedBoxes(Boxes):
         but its angle (and thus orientation) is somewhere between
         (5, 3, 4, 2, 0) and (5, 3, 4, 2, 90).
         """
-        device = tensor.device if isinstance(tensor, torch.Tensor) else torch.device("cpu")
+        device = tensor.device if isinstance(tensor, torch.Tensor) else torch.device("mps")
         tensor = torch.as_tensor(tensor, dtype=torch.float32, device=device)
         if tensor.numel() == 0:
             # Use reshape, so we don't end up creating a new tensor that does not depend on

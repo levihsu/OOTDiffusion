@@ -148,7 +148,7 @@ class Boxes:
         Args:
             tensor (Tensor[float]): a Nx4 matrix.  Each row is (x1, y1, x2, y2).
         """
-        device = tensor.device if isinstance(tensor, torch.Tensor) else torch.device("cpu")
+        device = tensor.device if isinstance(tensor, torch.Tensor) else torch.device("mps")
         tensor = torch.as_tensor(tensor, dtype=torch.float32, device=device)
         if tensor.numel() == 0:
             # Use reshape, so we don't end up creating a new tensor that does not depend on

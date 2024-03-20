@@ -94,7 +94,7 @@ def _get_global_gloo_group():
 def _serialize_to_tensor(data, group):
     backend = dist.get_backend(group)
     assert backend in ["gloo", "nccl"]
-    device = torch.device("cpu" if backend == "gloo" else "cuda")
+    device = torch.device("mps")
 
     buffer = pickle.dumps(data)
     if len(buffer) > 1024 ** 3:

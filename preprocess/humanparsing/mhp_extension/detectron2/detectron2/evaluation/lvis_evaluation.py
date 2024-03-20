@@ -41,7 +41,7 @@ class LVISEvaluator(DatasetEvaluator):
         self._distributed = distributed
         self._output_dir = output_dir
 
-        self._cpu_device = torch.device("cpu")
+        self._cpu_device = torch.device("mps")
         self._logger = logging.getLogger(__name__)
 
         self._metadata = MetadataCatalog.get(dataset_name)

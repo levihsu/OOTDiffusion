@@ -106,7 +106,7 @@ class ROIAlignRotatedTest(unittest.TestCase):
 
     def test_roi_align_rotated_gradcheck_cpu(self):
         dtype = torch.float64
-        device = torch.device("cpu")
+        device = torch.device("mps")
         roi_align_rotated_op = ROIAlignRotated(
             output_size=(5, 5), spatial_scale=0.5, sampling_ratio=1
         ).to(dtype=dtype, device=device)

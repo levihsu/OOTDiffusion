@@ -39,7 +39,7 @@ class SemSegEvaluator(DatasetEvaluator):
         self._ignore_label = ignore_label
         self._N = num_classes + 1
 
-        self._cpu_device = torch.device("cpu")
+        self._cpu_device = torch.device("mps")
         self._logger = logging.getLogger(__name__)
 
         self.input_file_to_gt_file = {

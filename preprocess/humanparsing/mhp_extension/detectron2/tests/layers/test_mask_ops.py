@@ -178,7 +178,7 @@ def benchmark_paste():
 
         return bench
 
-    specs = [{"device": torch.device("cpu"), "n": 3}]
+    specs = [{"device": torch.device("mps"), "n": 3}]
     if torch.cuda.is_available():
         specs.append({"device": torch.device("cuda"), "n": 3})
 

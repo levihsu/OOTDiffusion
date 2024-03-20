@@ -345,7 +345,7 @@ def benchmark_rotated_iou():
         return bench
 
     # only run it once per timed loop, since it's slow
-    args = [{"dev": torch.device("cpu"), "n": 1}]
+    args = [{"dev": torch.device("mps"), "n": 1}]
     if torch.cuda.is_available():
         args.append({"dev": torch.device("cuda"), "n": 10})
 

@@ -12,7 +12,6 @@ import torch
 class Parsing:
     def __init__(self, gpu_id: int):
         self.gpu_id = gpu_id
-        torch.cuda.set_device(gpu_id)
         session_options = ort.SessionOptions()
         session_options.graph_optimization_level = ort.GraphOptimizationLevel.ORT_ENABLE_ALL
         session_options.execution_mode = ort.ExecutionMode.ORT_SEQUENTIAL
@@ -24,6 +23,7 @@ class Parsing:
         
 
     def __call__(self, input_image):
-        torch.cuda.set_device(self.gpu_id)
+        # torch.cuda.set_device(self.gpu_id)
+        # torch.mps.set_device(self.gpu_id)
         parsed_image, face_mask = onnx_inference(self.session, self.lip_session, input_image)
         return parsed_image, face_mask

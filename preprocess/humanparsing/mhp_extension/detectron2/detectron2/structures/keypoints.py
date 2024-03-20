@@ -25,7 +25,7 @@ class Keypoints:
                 The shape should be (N, K, 3) where N is the number of
                 instances, and K is the number of keypoints per instance.
         """
-        device = keypoints.device if isinstance(keypoints, torch.Tensor) else torch.device("cpu")
+        device = keypoints.device if isinstance(keypoints, torch.Tensor) else torch.device("mps")
         keypoints = torch.as_tensor(keypoints, dtype=torch.float32, device=device)
         assert keypoints.dim() == 3 and keypoints.shape[2] == 3, keypoints.shape
         self.tensor = keypoints

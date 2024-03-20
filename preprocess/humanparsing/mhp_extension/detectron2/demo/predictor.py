@@ -24,7 +24,7 @@ class VisualizationDemo(object):
         self.metadata = MetadataCatalog.get(
             cfg.DATASETS.TEST[0] if len(cfg.DATASETS.TEST) else "__unused"
         )
-        self.cpu_device = torch.device("cpu")
+        self.cpu_device = torch.device("mps")
         self.instance_mode = instance_mode
 
         self.parallel = parallel

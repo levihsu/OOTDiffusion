@@ -39,7 +39,7 @@ class PascalVOCDetectionEvaluator(DatasetEvaluator):
         self._class_names = meta.thing_classes
         assert meta.year in [2007, 2012], meta.year
         self._is_2007 = meta.year == 2007
-        self._cpu_device = torch.device("cpu")
+        self._cpu_device = torch.device("mps")
         self._logger = logging.getLogger(__name__)
 
     def reset(self):

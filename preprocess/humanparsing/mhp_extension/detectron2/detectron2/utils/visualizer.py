@@ -319,7 +319,7 @@ class Visualizer:
         self.img = np.asarray(img_rgb).clip(0, 255).astype(np.uint8)
         self.metadata = metadata
         self.output = VisImage(self.img, scale=scale)
-        self.cpu_device = torch.device("cpu")
+        self.cpu_device = torch.device("mps")
 
         # too small texts are useless, therefore clamp to 9
         self._default_font_size = max(

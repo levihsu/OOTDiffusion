@@ -83,7 +83,7 @@ class DensePoseDataRelative(object):
         self.u = torch.as_tensor(annotation[DensePoseDataRelative.U_KEY])
         self.v = torch.as_tensor(annotation[DensePoseDataRelative.V_KEY])
         self.segm = DensePoseDataRelative.extract_segmentation_mask(annotation)
-        self.device = torch.device("cpu")
+        self.device = torch.device("mps")
         if cleanup:
             DensePoseDataRelative.cleanup_annotation(annotation)
 
@@ -515,7 +515,7 @@ class DensePoseResult(object):
 
 class DensePoseList(object):
 
-    _TORCH_DEVICE_CPU = torch.device("cpu")
+    _TORCH_DEVICE_CPU = torch.device("mps")
 
     def __init__(self, densepose_datas, boxes_xyxy_abs, image_size_hw, device=_TORCH_DEVICE_CPU):
         assert len(densepose_datas) == len(

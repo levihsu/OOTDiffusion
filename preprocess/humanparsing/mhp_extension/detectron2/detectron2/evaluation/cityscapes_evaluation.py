@@ -28,7 +28,7 @@ class CityscapesEvaluator(DatasetEvaluator):
                 "thing_classes", "gt_dir".
         """
         self._metadata = MetadataCatalog.get(dataset_name)
-        self._cpu_device = torch.device("cpu")
+        self._cpu_device = torch.device("mps")
         self._logger = logging.getLogger(__name__)
 
     def reset(self):
