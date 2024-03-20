@@ -63,12 +63,12 @@ class OOTDiffusionDC:
             use_safetensors=True,
             safety_checker=None,
             requires_safety_checker=False,
-        ).to(torch.bfloat16) # .to(self.gpu_id)
+        ).to(torch.bfloat16)
 
         self.pipe.scheduler = UniPCMultistepScheduler.from_config(self.pipe.scheduler.config)
         
         self.auto_processor = AutoProcessor.from_pretrained(VIT_PATH)
-        self.image_encoder = CLIPVisionModelWithProjection.from_pretrained(VIT_PATH).to(torch.bfloat16) # .to(self.gpu_id)
+        self.image_encoder = CLIPVisionModelWithProjection.from_pretrained(VIT_PATH).to(torch.bfloat16)
 
         self.tokenizer = CLIPTokenizer.from_pretrained(
             MODEL_PATH,
@@ -77,7 +77,7 @@ class OOTDiffusionDC:
         self.text_encoder = CLIPTextModel.from_pretrained(
             MODEL_PATH,
             subfolder="text_encoder",
-        ) # .to(self.gpu_id)
+        )
 
 
     def tokenize_captions(self, captions, max_length):
@@ -106,14 +106,14 @@ class OOTDiffusionDC:
         generator = torch.manual_seed(seed)
 
         with torch.no_grad():
-            prompt_image = self.auto_processor(images=image_garm, return_tensors="pt").to(torch.bfloat16) # .to(self.gpu_id)
+            prompt_image = self.auto_processor(images=image_garm, return_tensors="pt").to(torch.bfloat16)
             prompt_image = self.image_encoder(prompt_image.data['pixel_values']).image_embeds
             prompt_image = prompt_image.unsqueeze(1)
             if model_type == 'hd':
-                prompt_embeds = self.text_encoder(self.tokenize_captions([""], 2).to(torch.bfloat16))[0] # .to(self.gpu_id))[0]
+                prompt_embeds = self.text_encoder(self.tokenize_captions([""], 2).to(torch.bfloat16))[0]
                 prompt_embeds[:, 1:] = prompt_image[:]
             elif model_type == 'dc':
-                prompt_embeds = self.text_encoder(self.tokenize_captions([category], 3).to(torch.bfloat16))[0] # .to(self.gpu_id))[0]
+                prompt_embeds = self.text_encoder(self.tokenize_captions([category], 3).to(torch.bfloat16))[0]
                 prompt_embeds = torch.cat([prompt_embeds, prompt_image], dim=1)
             else:
                 raise ValueError("model_type must be \'hd\' or \'dc\'!")
