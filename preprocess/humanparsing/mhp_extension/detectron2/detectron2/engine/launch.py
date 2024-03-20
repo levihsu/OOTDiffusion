@@ -75,8 +75,6 @@ def _distributed_worker(
     comm.synchronize()
 
     assert num_gpus_per_machine <= torch.cuda.device_count()
-    # torch.cuda.set_device(local_rank)
-    # torch.mps.set_device(local_rank)
 
     # Setup the local process group (which contains ranks within the same machine)
     assert comm._LOCAL_PROCESS_GROUP is None
