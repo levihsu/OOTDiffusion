@@ -1,7 +1,7 @@
 # OOTDiffusion
 This repository is the official implementation of OOTDiffusion
 
-🤗 [Try out OOTDiffusion](https://huggingface.co/spaces/levihsu/OOTDiffusion) (Thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs)
+🤗 [Try out OOTDiffusion](https://huggingface.co/spaces/levihsu/OOTDiffusion) (Thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing A100 GPUs)
 
 Or [try our own demo](https://ootd.ibot.cn/) on RTX 4090 GPUs
 
