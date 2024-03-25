@@ -21,6 +21,7 @@ Our model checkpoints trained on [VITON-HD](https://github.com/shadow2496/VITON-
 ![workflow](images/workflow.png)&nbsp;
 
 ## Installation
+### Source
 1. Clone the repository
 
 ```sh
@@ -34,6 +35,15 @@ conda create -n ootd python==3.10
 conda activate ootd
 pip install torch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2
 pip install -r requirements.txt
+```
+
+### Docker
+make sure install [docker](https://docs.docker.com/engine/install/ubuntu/) and [nvidia-docker2](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
+```sh
+make build              # build a image version
+make test               # Test whether the built image can enable CUDA
+make deploy             # Deploy ootd project
+make exec               # Enter the ootd container (configure the environment + download all necessary models in the checkpoints folder by yourself), follow the Inference in the readme
 ```
 
 ## Inference
