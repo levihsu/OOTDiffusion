@@ -1,9 +1,9 @@
 # OOTDiffusion
 This repository is the official implementation of OOTDiffusion
 
-🤗 [Try out OOTDiffusion](https://huggingface.co/spaces/levihsu/OOTDiffusion) (Many thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs)
+🤗 [Try out OOTDiffusion](https://huggingface.co/spaces/levihsu/OOTDiffusion) (Thanks to [ZeroGPU](https://huggingface.co/zero-gpu-explorers) for providing GPUs)
 
-🤩 Please give me a star if you find it interesting!
+Or [try our own demo](https://ootd.ibot.cn/) on RTX 4090 GPUs
 
 > **OOTDiffusion: Outfitting Fusion based Latent Diffusion for Controllable Virtual Try-on** [[arXiv paper](https://arxiv.org/abs/2403.01779)]<br>
 > [Yuhao Xu](http://levihsu.github.io/), [Tao Gu](https://github.com/T-Gu), [Weifeng Chen](https://github.com/ShineChen1024), [Chengcai Chen](https://www.researchgate.net/profile/Chengcai-Chen)<br>
