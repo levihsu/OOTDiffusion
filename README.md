@@ -65,6 +65,10 @@ python run_ootd.py --model_path <model-image-path> --cloth_path <cloth-image-pat
 }
 ```
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=levihsu/OOTDiffusion&type=Date)](https://star-history.com/#levihsu/OOTDiffusion&Date)
+
 ## TODO List
 - [x] Paper
 - [x] Gradio demo
